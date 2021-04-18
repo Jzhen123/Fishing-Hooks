@@ -1,22 +1,28 @@
 import React from 'react';
 import ProductCard from './ProductCard';
+import { Row, Container } from 'reactstrap';
 
-function Products ({products}) {
+function Products({ products }) {
     // const productArr = products.map((item, index) => {
-    //     return <p key={index}>{item.name}</p>
+    //     return <div key={index}>{item.name}</div>
     // })
-    const stuff = products;
-    console.log(stuff)
+
+    console.log(products)
     return (
-        // <div>Hi</div>
-        stuff.map((item, index) => {
-            return (
-                <ProductCard 
-                    key={index}
-                    product={item}
-                />
-            )
-        })
+        <Container>
+            <Row>
+                {
+                    products.map((item, index) => {
+                        return (
+                            <ProductCard
+                                key={index}
+                                product={item}
+                            />
+                        )
+                    })
+                }
+            </Row>
+        </Container>
     )
 }
 

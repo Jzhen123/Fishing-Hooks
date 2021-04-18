@@ -19,7 +19,12 @@ function Page () {
     useEffect(axiosGet, [])
 
     return (
+        <>
+        {products.length > 1 ?
         <Products products={products} />
+        : "Loading Page"
+        }
+        </>
     )
 }
 
