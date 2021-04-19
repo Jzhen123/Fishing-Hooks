@@ -12,24 +12,24 @@ function Cart({ cart, products, removeFromCart }) {
                 <h1>Nothing in Cart</h1>
             }
 
-            {/* <ListGroup>
+            <ListGroup> 
                 {
                     cart.map((item, index) => {
                         return (
                             <ListGroupItem key={index}>
                                 <ListGroupItemHeading>
-                                    <Link to={`/product/${products[item - 1].id}`}>{products[item - 1].name}</Link>
-                                    {' - $' + products[item - 1].price}
+                                    <Link to={`/product/${item.id}`}>{item.name}</Link>
                                 </ListGroupItemHeading>
                                 <ListGroupItemText>
-                                    {products[item - 1].description}
+                                    {products[item.id - 1].description}
+                                    <p>Quanitity: {item.quantity} &nbsp;&nbsp;&nbsp; Total: {'$' + item.total}</p>
                                 </ListGroupItemText>
                                 <Button onClick={() => removeFromCart(index)}>Remove</Button>
                             </ListGroupItem>
                         )
                     })
                 }
-            </ListGroup> */}
+            </ListGroup> 
         </>
     )
 }

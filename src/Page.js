@@ -26,13 +26,15 @@ function Page() {
         if (temp.length > 0) {
             for (let i = 0; i < temp.length; i++) {
                 if (temp[i].id === ID) {
-                    temp[i].quanitity++;
+                    temp[i].quantity++;
+                    temp[i].total = (temp[i].quantity * products[ID - 1].price).toFixed(2);
                     break;
                 } else if (i === temp.length - 1) {
                     let obj = {};
                     obj.id = ID;
-                    obj.name = "Test";
-                    obj.quanitity = 1;
+                    obj.name = products[ID - 1].name;
+                    obj.quantity = 1;
+                    obj.total = (products[ID - 1].price).toFixed(2);
                     temp.push(obj);
                     break;
                 }
@@ -40,8 +42,9 @@ function Page() {
         } else {
             let obj = {};
             obj.id = ID;
-            obj.name = "Test";
-            obj.quanitity = 1;
+            obj.name = products[ID - 1].name;
+            obj.quantity = 1;
+            obj.total = (products[ID - 1].price).toFixed(2);
             temp.push(obj);
         }
         setCart(temp);
@@ -50,7 +53,6 @@ function Page() {
     const removeFromCart = (index) => {
         let temp = [...cart];
         temp.splice(index, 1);
-        console.log(temp)
         setCart(temp)
     }
 
