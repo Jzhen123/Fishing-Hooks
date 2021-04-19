@@ -7,7 +7,7 @@ function Products({ products }) {
     console.log(products)
     return (
         <Container>
-            <Row>
+            <Row sm="3">
                 {
                     products.map((item, index) => {
                         return (

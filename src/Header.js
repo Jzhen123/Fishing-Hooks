@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink, UncontrolledDropdown, DropdownToggle, DropdownMenu, DropdownItem, NavbarText } from 'reactstrap';
 import './Header.css';
+import { Link, Route } from 'react-router-dom';
 
 function Header() {
 
@@ -11,23 +12,22 @@ function Header() {
     return (
         <>
             <h1>Welcome to Discount Tackle</h1>
-            <div>
-                <Navbar color="light" light expand="md">
-                    <NavbarBrand href="/">Home</NavbarBrand>
-                    <NavbarToggler onClick={toggle} />
-                    <Collapse isOpen={isOpen} navbar>
-                        <Nav className="mr-auto" navbar>
-                            <NavItem>
-                                <NavLink href="/components/">Components</NavLink>
-                            </NavItem>
-                            <NavItem>
-                                <NavLink href="https://github.com/reactstrap/reactstrap">GitHub</NavLink>
-                            </NavItem>
-                        </Nav>
-                        <NavbarText>Simple Text</NavbarText>
-                    </Collapse>
-                </Navbar>
-            </div>
+            <Navbar color="light" light expand="md">
+                <NavbarBrand>
+                    <Link to={'/home/'}>Home</Link>
+                </NavbarBrand>
+                <NavbarToggler onClick={toggle} />
+                <Collapse isOpen={isOpen} navbar>
+                    <Nav className="mr-auto" navbar>
+                        <NavItem>
+                            <Link to={'/products/'}>Products</Link>
+                        </NavItem>
+                        <NavItem className="ps-3">
+                        <Link to={'/cart/'}>Cart</Link>
+                        </NavItem>
+                    </Nav>
+                </Collapse>
+            </Navbar>
         </>
     )
 }

@@ -3,8 +3,8 @@ import { Card, CardImg, CardText, CardBody, CardTitle, CardSubtitle, Button, Col
 import Fish from './fish.jpeg';
 function ProductCard({ product }) {
     return (
-            <Col xs="3" className="mt-4 mb-4">
-                <Card>
+            <Col className="mt-4 mb-4">
+                <Card body outline color="danger">
                     <CardImg top width="100%" src={Fish} alt="Card image cap" />
                     <CardBody>
                         <CardTitle tag="h5">{product.name}</CardTitle>
@@ -13,7 +13,7 @@ function ProductCard({ product }) {
                         <Button>Add to Cart</Button>
                     </CardBody>
                 </Card>
-            </Col>
+             </Col>
     )
 }
 
