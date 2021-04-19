@@ -22,11 +22,18 @@ function Page() {
     useEffect(axiosGet, [])
 
     const addToCart = (ID) => {
-        cart.push(ID);
-        console.log(cart);
+        let temp = [...cart];
+        temp.push(ID);
+        console.log(temp)
+        setCart(temp);
     }
 
-
+    const removeFromCart = (index) => {
+        let temp = [...cart];
+        temp.splice(index, 1);
+        console.log(temp)
+        setCart(temp)
+    }
 
     return (
         <Switch>
@@ -53,7 +60,9 @@ function Page() {
                     <Route path="/cart">
                         <Cart
                         products={products} 
-                        cart={cart}/>
+                        cart={cart}
+                        removeFromCart={removeFromCart}
+                        />
                     </Route>
                 </>
                 : "Loading Page"

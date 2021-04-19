@@ -3,7 +3,7 @@ import { ListGroup, ListGroupItem, ListGroupItemHeading, ListGroupItemText, Butt
 import { Link } from 'react-router-dom';
 
 
-function Cart({ cart, products }) {
+function Cart({ cart, products, removeFromCart }) {
     return (
         <>
             <h1>Cart</h1>
@@ -20,7 +20,7 @@ function Cart({ cart, products }) {
                                 <ListGroupItemText>
                                     {products[item - 1].description}
                                 </ListGroupItemText>
-                                <Button>Remove</Button>
+                                <Button onClick={() => removeFromCart(index)}>Remove</Button>
                             </ListGroupItem>
                         )
                     })
