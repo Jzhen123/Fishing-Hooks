@@ -8,7 +8,7 @@ import { Switch, Route } from 'react-router-dom';
 
 function Page() {
     const [products, setProducts] = useState({});
-    const [cart, setCart] = useState({});
+    const [cart, setCart] = useState([]);
 
     const axiosGet = () => {
         axios.get('https://awesomeincbootcampapi-ianrios529550.codeanyapp.com/api/store/products')
@@ -22,7 +22,8 @@ function Page() {
     useEffect(axiosGet, [])
 
     const addToCart = (ID) => {
-        console.log(ID);
+        cart.push(ID);
+        console.log(cart);
     }
 
 
@@ -50,7 +51,9 @@ function Page() {
                     </Route>
 
                     <Route path="/cart">
-                        <Cart />
+                        <Cart
+                        products={products} 
+                        cart={cart}/>
                     </Route>
                 </>
                 : "Loading Page"
