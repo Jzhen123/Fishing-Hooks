@@ -24,7 +24,7 @@ function Cart({ cart, products, removeFromCart }) {
                                     {products[item.id - 1].description}
                                     <p>Quanitity: {item.quantity} &nbsp;&nbsp;&nbsp; Total: {'$' + item.total}</p>
                                 </ListGroupItemText>
-                                <Button onClick={() => removeFromCart(index)}>Remove</Button>
+                                How Many? [ ] <Button onClick={() => removeFromCart(index)}>Remove</Button>
                             </ListGroupItem>
                         )
                     })

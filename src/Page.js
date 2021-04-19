@@ -21,20 +21,22 @@ function Page() {
     }
     useEffect(axiosGet, [])
 
-    const addToCart = (ID) => {
+    const addToCart = (ID, amount) => {
+        if (amount === undefined || amount === "") { amount = 1 }
+        console.log(amount)
         let temp = [...cart];
         if (temp.length > 0) {
             for (let i = 0; i < temp.length; i++) {
                 if (temp[i].id === ID) {
-                    temp[i].quantity++;
+                    temp[i].quantity = parseInt(temp[i].quantity) + parseInt(amount);
                     temp[i].total = (temp[i].quantity * products[ID - 1].price).toFixed(2);
                     break;
                 } else if (i === temp.length - 1) {
                     let obj = {};
                     obj.id = ID;
                     obj.name = products[ID - 1].name;
-                    obj.quantity = 1;
-                    obj.total = (products[ID - 1].price).toFixed(2);
+                    obj.quantity = amount;
+                    obj.total = ((products[ID - 1].price) * obj.quantity).toFixed(2);
                     temp.push(obj);
                     break;
                 }
@@ -43,8 +45,8 @@ function Page() {
             let obj = {};
             obj.id = ID;
             obj.name = products[ID - 1].name;
-            obj.quantity = 1;
-            obj.total = (products[ID - 1].price).toFixed(2);
+            obj.quantity = amount;
+            obj.total = ((products[ID - 1].price) * obj.quantity).toFixed(2);
             temp.push(obj);
         }
         setCart(temp);
@@ -55,6 +57,16 @@ function Page() {
         temp.splice(index, 1);
         setCart(temp)
     }
+
+    // const changeAmount = (ID) => {
+    //     let temp = [...cart];
+    //     temp.map(el => {
+    //         if (el.id === ID) {
+    //             el.quantity = 500;
+    //         }
+    //     })
+    //     setCart(temp);
+    // }
 
     return (
         <Switch>
@@ -75,7 +87,10 @@ function Page() {
                     </Route>
 
                     <Route path={`/product/:productID`}>
-                        <Product products={products} />
+                        <Product 
+                        products={products}
+                        addToCart={addToCart}
+                        />
                     </Route>
 
                     <Route path="/cart">
