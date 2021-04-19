@@ -3,7 +3,7 @@ import { Card, CardImg, CardText, CardBody, CardTitle, CardSubtitle, Button, Col
 import Fish from './fish.jpeg';
 import { Link } from 'react-router-dom';
 
-function ProductCard({ product }) {
+function ProductCard({ product, addToCart }) {
     return (
         <Col className="mt-4 mb-4">
             <Card body outline color="danger">
@@ -14,7 +14,7 @@ function ProductCard({ product }) {
                     </CardTitle>
                     <CardSubtitle tag="h6" className="mb-2 text-muted">{'$' + product.price}</CardSubtitle>
                     <CardText>{product.description}</CardText>
-                    <Button>Add to Cart</Button>
+                    <Button onClick={() => addToCart(product.id)}>Add to Cart</Button>
                 </CardBody>
             </Card>
         </Col>

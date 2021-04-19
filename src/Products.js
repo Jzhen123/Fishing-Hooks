@@ -2,7 +2,7 @@ import React from 'react';
 import ProductCard from './ProductCard';
 import { Row, Container } from 'reactstrap';
 
-function Products({ products }) {
+function Products({ products, addToCart }) {
 
     console.log(products)
     return (
@@ -14,6 +14,7 @@ function Products({ products }) {
                             <ProductCard
                                 key={index}
                                 product={item}
+                                addToCart={addToCart}
                             />
                         )
                     })

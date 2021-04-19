@@ -62,3 +62,5 @@ Managing Data
             Using an ID search through our axios data and then return appropriately
 
     Store an array of cart items in Pages
+        Have a onClick function for the 'Add to Cart' buttons that pushes the product.id to the cart array
+        May need an input field or dropdown for quantity since we need to be able to add however many the customer wants
