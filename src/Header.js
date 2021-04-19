@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink, UncontrolledDropdown, DropdownToggle, DropdownMenu, DropdownItem, NavbarText } from 'reactstrap';
 import './Header.css';
-import { Link, Route } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 function Header() {
 
