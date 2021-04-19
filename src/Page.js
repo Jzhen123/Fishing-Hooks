@@ -58,15 +58,16 @@ function Page() {
         setCart(temp)
     }
 
-    // const changeAmount = (ID) => {
-    //     let temp = [...cart];
-    //     temp.map(el => {
-    //         if (el.id === ID) {
-    //             el.quantity = 500;
-    //         }
-    //     })
-    //     setCart(temp);
-    // }
+    const changeAmount = (ID, amount) => {
+        let temp = [...cart];
+        temp.map(el => {
+            if (el.id === ID) {
+                el.quantity = amount;
+                el.total = el.quantity * products[ID - 1].price
+            }
+        })
+        setCart(temp);
+    }
 
     return (
         <Switch>
@@ -98,6 +99,7 @@ function Page() {
                             products={products}
                             cart={cart}
                             removeFromCart={removeFromCart}
+                            changeAmount={changeAmount}
                         />
                     </Route>
                 </>
