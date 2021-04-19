@@ -1,12 +1,12 @@
 import React from 'react';
 import { Jumbotron, Button } from 'reactstrap';
 import Fish from './fish.jpeg';
-
 import { useParams } from 'react-router-dom';
 
 function Product({ products }) {
 
     let { productID } = useParams();
+    productID--; // So the item in arr[0] can be referenced as 1
 
     return (
         <>
