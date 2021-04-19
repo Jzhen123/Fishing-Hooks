@@ -6,9 +6,13 @@ import { Link } from 'react-router-dom';
 function Cart({ cart, products, removeFromCart }) {
     return (
         <>
-            <h1>Cart</h1>
-            <ListGroup>
+            { cart.length > 0 ?
+                <h1>Cart</h1>
+                :
+                <h1>Nothing in Cart</h1>
+            }
 
+            {/* <ListGroup>
                 {
                     cart.map((item, index) => {
                         return (
@@ -25,7 +29,7 @@ function Cart({ cart, products, removeFromCart }) {
                         )
                     })
                 }
-            </ListGroup>
+            </ListGroup> */}
         </>
     )
 }

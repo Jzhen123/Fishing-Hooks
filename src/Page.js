@@ -23,8 +23,27 @@ function Page() {
 
     const addToCart = (ID) => {
         let temp = [...cart];
-        temp.push(ID);
-        console.log(temp)
+        if (temp.length > 0) {
+            for (let i = 0; i < temp.length; i++) {
+                if (temp[i].id === ID) {
+                    temp[i].quanitity++;
+                    break;
+                } else if (i === temp.length - 1) {
+                    let obj = {};
+                    obj.id = ID;
+                    obj.name = "Test";
+                    obj.quanitity = 1;
+                    temp.push(obj);
+                    break;
+                }
+            }
+        } else {
+            let obj = {};
+            obj.id = ID;
+            obj.name = "Test";
+            obj.quanitity = 1;
+            temp.push(obj);
+        }
         setCart(temp);
     }
 
@@ -47,9 +66,9 @@ function Page() {
             {products.length > 1 ?
                 <>
                     <Route path="/products">
-                        <Products 
-                        products={products}
-                        addToCart={addToCart}
+                        <Products
+                            products={products}
+                            addToCart={addToCart}
                         />
                     </Route>
 
@@ -59,9 +78,9 @@ function Page() {
 
                     <Route path="/cart">
                         <Cart
-                        products={products} 
-                        cart={cart}
-                        removeFromCart={removeFromCart}
+                            products={products}
+                            cart={cart}
+                            removeFromCart={removeFromCart}
                         />
                     </Route>
                 </>

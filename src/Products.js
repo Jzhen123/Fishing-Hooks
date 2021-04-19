@@ -4,7 +4,6 @@ import { Row, Container } from 'reactstrap';
 
 function Products({ products, addToCart }) {
 
-    console.log(products)
     return (
         <Container>
             <Row sm="3">
