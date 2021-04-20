@@ -13,7 +13,7 @@ function Header() {
         <>
             <h1>Welcome to Discount Tackle</h1>
             <Navbar color="light" light expand="md">
-                <NavbarBrand>
+                <NavbarBrand className="ps-3">
                     <Link to={'/home/'}>Home</Link>
                 </NavbarBrand>
                 <NavbarToggler onClick={toggle} />

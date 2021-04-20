@@ -8,7 +8,7 @@ import { Switch, Route } from 'react-router-dom';
 
 function Page() {
     const [products, setProducts] = useState({});
-    const [cart, setCart] = useState([]);
+    const [cart, setCurrentCart] = useState([]);
 
     const axiosGet = () => {
         axios.get('https://awesomeincbootcampapi-ianrios529550.codeanyapp.com/api/store/products')
@@ -20,6 +20,18 @@ function Page() {
             })
     }
     useEffect(axiosGet, [])
+
+    const setCart = (cart) => {
+        setCurrentCart(cart);
+        window.localStorage.setItem('cart', JSON.stringify(cart))
+    }
+
+    useEffect(() => {
+        let LScart = window.localStorage.getItem('cart');
+        if (LScart !== cart) {
+            setCurrentCart(JSON.parse(LScart))
+        }
+    }, [])
 
     const addToCart = (ID, amount) => {
         if (amount === undefined || amount === "") { amount = 1 }

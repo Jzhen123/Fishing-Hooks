@@ -2,7 +2,7 @@ import React from 'react';
 import { Jumbotron, Button } from 'reactstrap';
 import Fish from './fish.jpeg';
 import { useParams } from 'react-router-dom';
-import { Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+import { Form, FormGroup, Input } from 'reactstrap';
 
 
 function Product({ products, addToCart }) {
