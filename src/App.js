@@ -1,10 +1,18 @@
-import React, {useState, useEffect} from 'react';
-import axios from 'axios';
+import React from 'react';
 import './App.css';
+import Header from './Header';
+import Page from './Page';
+
+import { BrowserRouter as Router, Switch } from 'react-router-dom';
 
 function App() {
   return (
-    <div>Hello World!</div>
+    <Router>
+      <Switch>
+        <Header />
+      </Switch>
+        <Page />
+    </Router>
   );
 }
 
