@@ -6,7 +6,7 @@ function Products({ products, addToCart }) {
 
     return (
         <Container>
-            <Row sm="3">
+            <Row sm="4">
                 {
                     products.map((item, index) => {
                         return (
