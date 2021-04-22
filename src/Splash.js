@@ -2,7 +2,7 @@ import React from 'react';
 import Image from './Image.png';
 function Splash() {
     return (
-        <img style={{width: "100vw"}} src={Image} alt={"Logo"}></img>
+        <img style={{position:'relative', left:'15vw', top:'8vh', width: "70vw", height: '70vh'}} src={Image} alt={"Logo"}></img>
     )
 }
 
