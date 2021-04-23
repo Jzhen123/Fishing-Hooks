@@ -44,7 +44,7 @@ function Product({ products, addToCart }) {
 
                 </>
                 :
-                "This product does not exist!"
+                "This product does not exist!" // If product doesn't exist display this string
             }
         </>
     )
