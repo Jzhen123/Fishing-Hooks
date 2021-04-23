@@ -7,26 +7,29 @@ import { Form, FormGroup, Input } from 'reactstrap';
 
 function Product({ products, addToCart }) {
 
-    let { productID } = useParams();
+    let { productID } = useParams(); // Sets productID to value in url
     productID--; // So the item in arr[0] can be referenced as 1
 
     return (
         <>
-            {productID < products.length ?
+            {productID < products.length ? // Ternary to check if productID could even exist in the array based on length. Not very dynamic.
                 <>
-                    <Jumbotron className="text-center">
-                        <h1 className="display-3">{products[productID].name}</h1>
-                        <img src={Fish} alt={"Fish"} style={{ width: "400px" }}></img>
+                    <Jumbotron className="text-center"> {/* Used for styling */}
+                        <h1 className="display-3">{products[productID].name}</h1> {/* Name */}
+                        <img src={Fish} alt={"Fish"} style={{ width: "400px" }}></img> {/* Fish picture */}
                         <hr className="my-2" />
-                        <p>{products[productID].description}</p>
-                        <p>{'$' + products[productID].price}</p>
+                        <p>{products[productID].description}</p> {/* Description */}
+                        <p>{'$' + products[productID].price}</p> {/* Price */}
                     </Jumbotron>
 
-                    <Form style={{position: "relative", left: "47.5vw"}} onSubmit={event => {
-                        addToCart(productID + 1, event.target.elements.number.value)
-                        event.preventDefault();
-                    }}>
-
+                    {/* Form for Quanitity Input and Add to Cart Button that uses addToCard function from props */}
+                    <Form
+                        style={{ position: "relative", left: "47.5vw" }} 
+                        onSubmit={event => {
+                            addToCart(productID + 1, event.target.elements.number.value)
+                            event.preventDefault();
+                        }}
+                    >
                         <FormGroup>
                             <Input
                                 style={{ width: "133px" }}

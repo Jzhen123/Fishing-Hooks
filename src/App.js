@@ -7,10 +7,8 @@ import { BrowserRouter as Router, Switch } from 'react-router-dom';
 
 function App() {
   return (
-    <Router>
-      <Switch>
+    <Router> {/* Wrapping everything in Router so any routes made within Router can be access by any other child components */}
         <Header />
-      </Switch>
         <Page />
     </Router>
   );

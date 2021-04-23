@@ -11,19 +11,19 @@ function Header() {
 
     return (
         <>
-            <h1>Welcome to Discount Tackle</h1>
+            <h1 style={{ fontSize: '6vh' }}>Discount Tackle</h1>
             <Navbar color="light" light expand="md">
                 <NavbarBrand className="ps-3">
-                    <Link to={'/home/'}>Home</Link>
+                    <Link to={'/home/'} style={{ fontSize: '3vh' }} >Home</Link>
                 </NavbarBrand>
                 <NavbarToggler onClick={toggle} />
                 <Collapse isOpen={isOpen} navbar>
                     <Nav className="mr-auto" navbar>
                         <NavItem>
-                            <Link to={'/products/'}>Products</Link>
+                            <Link to={'/products/'} style={{ fontSize: '3vh' }}>Products</Link>
                         </NavItem>
                         <NavItem className="ps-3">
-                        <Link to={'/cart/'}>Cart</Link>
+                        <Link to={'/cart/'} style={{ fontSize: '3vh' }}>Cart</Link>
                         </NavItem>
                     </Nav>
                 </Collapse>
