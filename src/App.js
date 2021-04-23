@@ -7,11 +7,9 @@ import { BrowserRouter as Router, Switch } from 'react-router-dom';
 
 function App() {
   return (
-    <Router>
-      <Switch>
-        <Header />
-      </Switch>
-        <Page />
+    <Router> {/* Wrapping everything in Router so any routes made within Router can be access by any other child components */}
+        <Header /> {/* Header Component */}
+        <Page /> {/* Shows current view based on URL */}
     </Router>
   );
 }
